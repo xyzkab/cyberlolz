@@ -1,0 +1,41 @@
+version: '2'
+services:
+  # kibana:
+  #   image: kibana:6.2.4
+  #   depends_on:
+  #     - elasticsearch
+  #   environment:
+  #     SERVER_NAME: kibana
+  #     SERVER_HOST: kibana
+  #     ELASTICSEARCH_URL: http://elasticsearch
+  #     ES_JAVA_OPTS: -Xms512m -Xmx512m
+  #   ports:
+  #     - "5601:5601"
+  # elasticsearch:
+  #   image: elasticsearch:6.2.4
+  #   environment:
+  #     discovery.type: single-node
+  #     ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER: ${USER}
+        UID: ${UID}
+    image: cyberlolz
+    # command: foreman start
+    volumes:
+      - ".:/cyberlolz"
+    depends_on:
+      - db
+    env_file: .env
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecurepassword
+      MYSQL_DATABASE: cyberlolz
+      MYSQL_USER: cyberlolz
+      MYSQL_PASSWORD: cyberlolz
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
