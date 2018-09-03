@@ -38,3 +38,6 @@ Gemfile.lock
 
 # Ignore creds
 .env
+
+# Ignore irb-history
+.irb-history

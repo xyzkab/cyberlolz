@@ -17,6 +17,8 @@ COPY Gemfile $WORKDIR
 RUN chown -R $USER $WORKDIR
 USER $USER
 RUN echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
+RUN echo "IRB.conf[:SAVE_HISTORY] = 10000" >> ~/.irbrc
+RUN echo "IRB.conf[:HISTORY_FILE] = '$WORKDIR/.irb-history'" >> ~/.irbrc
 
 ENV BUNDLE_PATH=$HOME/bundle \
     BUNDLE_BIN=$HOME/bundle/bin \
