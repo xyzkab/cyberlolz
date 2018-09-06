@@ -4,6 +4,12 @@ class Post < ApplicationRecord
   validate :parse_url
   validates :url_uniq, uniqueness: {case_sensitive: false}
 
+  belongs_to :category, optional: true
+
+  def category
+    super || Category.find_by(name: "uncategorized")
+  end
+
   private
 
   def parse_url
