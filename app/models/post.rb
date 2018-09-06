@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :url_uniq, uniqueness: {case_sensitive: false}
 
   belongs_to :category, optional: true
+  belongs_to :tag, optional: true
 
   def category
     super || Category.find_by(name: "uncategorized")
