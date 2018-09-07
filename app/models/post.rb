@@ -6,10 +6,17 @@ class Post < ApplicationRecord
 
   belongs_to :category, optional: true
   belongs_to :tag, optional: true
+  belongs_to :post_status, optional: true
 
   def category
-    super || Category.find_by(name: "uncategorized")
+    super || Category.default
   end
+
+  def post_status
+    super || PostStatus.default
+  end
+
+  alias_method :status, :post_status
 
   private
 

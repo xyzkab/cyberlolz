@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_142904) do
+ActiveRecord::Schema.define(version: 2018_09_06_143618) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
@@ -20,7 +20,15 @@ ActiveRecord::Schema.define(version: 2018_09_06_142904) do
     t.index ["name"], name: "index_category_on_name", unique: true
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "post_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_status_on_name", unique: true
+  end
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "url"
@@ -29,7 +37,9 @@ ActiveRecord::Schema.define(version: 2018_09_06_142904) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "tag_id"
+    t.bigint "post_status_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["post_status_id"], name: "index_posts_on_post_status_id"
     t.index ["tag_id"], name: "index_posts_on_tag_id"
     t.index ["url_uniq"], name: "index_post_on_url_uniq", unique: true
   end
@@ -43,5 +53,6 @@ ActiveRecord::Schema.define(version: 2018_09_06_142904) do
   end
 
   add_foreign_key "posts", "categories"
+  add_foreign_key "posts", "post_statuses"
   add_foreign_key "posts", "tags"
 end
