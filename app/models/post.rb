@@ -48,8 +48,10 @@ class Post < ApplicationRecord
   def set_uniq_url
     return if url.nil?
     uri = URI.parse(url)
-    uri.path = uri.path[0..-2] if uri.path.ends_with?("/") # remove last / if exist
-    uri.host.gsub!(/www./,'') # remove www. in hostname if exist
-    self.url_uniq = "https://#{uri.host}#{uri.path}"
+    if uri.path&.ends_with?("/") # remove last / if exist
+      uri.path = uri.path[0..-2]
+      uri.host.gsub!(/www./,'') # remove www. in hostname if exist
+      self.url_uniq = "https://#{uri.host}#{uri.path}"
+    end
   end
 end
