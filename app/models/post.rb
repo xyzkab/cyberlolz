@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Post < ApplicationRecord
+
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   before_validation :set_uniq_url
   validate :parse_url
@@ -7,6 +12,15 @@ class Post < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :tag, optional: true
   belongs_to :post_status, optional: true
+
+  def as_indexed_json(options = {})
+    as_json(
+      include: {
+        status: { except: [:created_at, :updated_at] },
+        category: { except: [:created_at, :updated_at] }
+      }
+    )
+  end
 
   def category
     super || Category.default
