@@ -1,0 +1,28 @@
+<% title "Post" %>
+<h1>Edit Post</h1>
+<div class="posts">
+  <%= form_for(@post) do |f| %>
+  <table>
+    <tr>
+      <th align="left">Title</th>
+      <td><%= title_to_link(@post) %></td>
+    </tr>
+    <tr>
+      <th align="left">Description</th>
+      <td><%= f.text_field :description, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th align="left">Category</th>
+      <td><%= f.select :category_id, @categories.collect {|category| [category.name, category.id]} %></td>
+    </tr>
+    <tr>
+      <th align="left">Status</th>
+      <td><%= f.select :post_status_id, @status.collect {|status| [status.name, status.id]} %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= submit_tag("Update!") %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>

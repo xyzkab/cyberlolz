@@ -1,0 +1,25 @@
+<% title "Post" %>
+<h1><%= @post.title %></h1>
+<div class="posts">
+  <table>
+    <tr>
+      <th align="left">Title</th>
+      <td><%= title_to_link(@post) %></td>
+    </tr>
+    <tr>
+      <th align="left">Description</th>
+      <td><%= @post.description %></td>
+    </tr>
+    <tr>
+      <th align="left">Category</th>
+      <td><%= @post.category.name %></td>
+    </tr>
+    <tr>
+      <th align="left">Status</th>
+      <td><%= @post.status.name %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Edit", edit_post_path(@post) %></td>
+    </tr>
+  </table>
+</div>
