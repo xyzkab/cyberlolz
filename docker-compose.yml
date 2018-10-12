@@ -24,8 +24,7 @@ services:
         USER: ${USER}
         UID: ${UID}
     image: cyberlolz
-    # command: foreman start
-    command: rails s -b 0.0.0.0
+    command: ./setup
     volumes:
       - ".:/cyberlolz"
     depends_on:
@@ -37,9 +36,5 @@ services:
   db:
     image: mysql:5.7
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: supersecurepassword
-      MYSQL_DATABASE: cyberlolz
-      MYSQL_USER: cyberlolz
-      MYSQL_PASSWORD: cyberlolz
+    env_file: .env
     command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
