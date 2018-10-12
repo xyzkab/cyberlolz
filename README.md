@@ -1,24 +1,18 @@
-# README
+# Cyberlolz
+This is just a simple content management for a particular posts, it might looks like a blog but it's not really. I can `CRUD` whatever posts i want in a `Post` model manually or automatically and then later view/correlate the data using kibana dashboard.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Clone this repo
+```
+:~# git clone https://github.com/xyzkab/cyberlolz
+:~# cd cyberlolz
+:~# docker-compose build app
+:~# docker-compose up
+```
 
-Things you may want to cover:
+## Documentation
+* Access [Post WebView](http://localhost:3001)
+* Access [Kibana Dashboard](http://localhost:5601)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Disclaimer
+**I DON'T RESPONSIBLE** for anything happend when using this tool. Try to use this locally by not exposing or make it accessible through internet/public hosting,servers,etc.
