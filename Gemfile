@@ -51,6 +51,11 @@ gem 'foreman'
 # Use elasticsearch-model
 gem 'elasticsearch-model'
 
+# Use kibana_dashboard_api
+gem 'kibana_dashboard_api', :git => 'https://github.com/xyzkab/kibana_dashboard_api'
+gem 'http-configuration', :git => 'https://github.com/xyzkab/http-configuration'
+gem 'http-repeater', :git => 'https://github.com/xyzkab/http-repeater'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
