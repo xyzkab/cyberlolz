@@ -42,9 +42,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use SuckerPunch
 # gem 'sucker_punch', '~> 2.0'
 
-# Use Foreman
-gem 'foreman'
-
 # Use Dotenv
 # gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
