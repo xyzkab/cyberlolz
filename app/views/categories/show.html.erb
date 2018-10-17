@@ -1,0 +1,20 @@
+<% title "Category" %>
+<h1><%= @category.name %></h1>
+<div class="categories">
+  <table>
+    <tr>
+      <th align="left">Name</th>
+      <td><%= @category.name %></td>
+    </tr>
+    <tr>
+      <th align="left">Description</th>
+      <td><%= @category.description %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Edit", edit_category_path(@category) %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Back", categories_path %></td>
+    </tr>
+  </table>
+</div>

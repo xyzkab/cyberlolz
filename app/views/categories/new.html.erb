@@ -1,0 +1,20 @@
+<% title "Category" %>
+<h1>New Category</h1>
+<div class="categories">
+  <%= form_for(@category) do |f| %>
+  <table>
+    <tr>
+      <th align="left">Name</th>
+      <td><%= f.text_field :name, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th align="left">Description</th>
+      <td><%= f.text_field :description, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Back", categories_path %></td>
+      <td><%= submit_tag("Create!") %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
