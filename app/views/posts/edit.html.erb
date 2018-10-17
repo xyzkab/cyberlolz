@@ -20,7 +20,7 @@
       <td><%= f.select :post_status_id, @status.collect {|status| [status.name, status.id]} %></td>
     </tr>
     <tr>
-      <th></th>
+      <td><%= link_to "Back", post_path(@post) %></td>
       <td><%= submit_tag("Update!") %></td>
     </tr>
   </table>
