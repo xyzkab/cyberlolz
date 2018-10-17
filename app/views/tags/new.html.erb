@@ -1,0 +1,20 @@
+<% title "Tag" %>
+<h1>New Tag</h1>
+<div class="tags">
+  <%= form_for(@tag) do |f| %>
+  <table>
+    <tr>
+      <th align="left">Name</th>
+      <td><%= f.text_field :name, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th align="left">Description</th>
+      <td><%= f.text_field :description, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Back", tags_path %></td>
+      <td><%= submit_tag("Create!") %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
