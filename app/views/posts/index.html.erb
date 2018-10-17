@@ -13,7 +13,7 @@
     <tr>
       <td><%= title_to_link(post) %></td> <!-- TODO: must validate :url field for xss -->
       <td><%= post.description %></td>
-      <td><%= post.category.name %></td>
+      <td><%= link_to(post.category.name, category_path(post.category)) %></td>
       <td><%= post.status.name %></td>
       <td><%= link_to "Edit", edit_post_path(post) %></td>
     </tr>
