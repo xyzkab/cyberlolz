@@ -51,7 +51,7 @@ class Post < ApplicationRecord
     if uri.path&.ends_with?("/") # remove last / if exist
       uri.path = uri.path[0..-2]
       uri.host.gsub!(/www./,'') # remove www. in hostname if exist
-      self.url_uniq = "https://#{uri.host}#{uri.path}"
+      self.url_uniq = "#{uri.scheme}://#{uri.host}#{uri.path}"
     end
   end
 end
