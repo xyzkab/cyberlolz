@@ -36,6 +36,7 @@ class Post < ApplicationRecord
 
   def parse_url
     schemes = ["http","https"]
+    
     begin
       uri = URI.parse(url)
       raise URI::InvalidURIError.new("invalid host") if uri.host.nil?
@@ -47,11 +48,15 @@ class Post < ApplicationRecord
 
   def set_uniq_url
     return if url.nil?
+
     uri = URI.parse(url)
     if uri.path&.ends_with?("/") # remove last / if exist
       uri.path = uri.path[0..-2]
-      uri.host.gsub!(/www./,'') # remove www. in hostname if exist
-      self.url_uniq = "#{uri.scheme}://#{uri.host}#{uri.path}"
     end
+
+    uri.host.gsub!(/www./,'') # remove www. in hostname if exist
+    query = !uri.query.blank? ? "?#{uri.query}" : ""
+
+    self.url_uniq = "#{uri.scheme}://#{uri.host}#{uri.path}#{query}"    
   end
 end
