@@ -55,11 +55,11 @@ gem 'http-repeater', :git => 'https://github.com/xyzkab/http-repeater'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
-  gem 'guard-rspec'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers', '~> 3.1'
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'rspec-rails'
+  # gem 'guard-rspec'
+  # gem 'factory_bot_rails'
+  # gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
