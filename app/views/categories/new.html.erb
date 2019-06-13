@@ -12,9 +12,12 @@
       <td><%= f.text_field :description, class: "form-control" %></td>
     </tr>
     <tr>
-      <td><%= link_to "Back", categories_path %></td>
+      <th></th>
       <td><%= submit_tag("Create!") %></td>
     </tr>
   </table>
   <% end %>
+  <ul>
+    <li><%= link_to "Back", "javascript:history.back()" %></li>
+  </ul>
 </div>

@@ -18,9 +18,9 @@
       <th align="left">Status</th>
       <td><%= @post.status.name %></td>
     </tr>
-    <tr>
-      <td><%= link_to "Back", posts_path %></td>
-      <td><%= link_to "Edit", edit_post_path(@post) %></td>
-    </tr>
   </table>
+  <ul>
+    <li><%= link_to "Edit", edit_post_path(@post) %></li>
+    <li><%= link_to "Back", "javascript:history.back()" %></li>
+  </ul>
 </div>

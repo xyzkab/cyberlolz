@@ -10,11 +10,9 @@
       <th align="left">Description</th>
       <td><%= @category.description %></td>
     </tr>
-    <tr>
-      <td><%= link_to "Edit", edit_category_path(@category) %></td>
-    </tr>
-    <tr>
-      <td><%= link_to "Back", categories_path %></td>
-    </tr>
   </table>
+  <ul>
+    <li><%= link_to "Edit", edit_category_path(@category) %></li>
+    <li><%= link_to "Back", "javascript:history.back()" %></li>
+  </ul>
 </div>

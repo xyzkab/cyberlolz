@@ -1,6 +1,6 @@
 <% title "Tag" %>
 <h1>Edit tag</h1>
-<div class="categories">
+<div class="tags">
   <%= form_for(@tag) do |f| %>
   <table>
     <tr>
@@ -12,9 +12,12 @@
       <td><%= f.text_field :description, class: "form-control" %></td>
     </tr>
     <tr>
-      <td><%= link_to "Back", tag_path(@tag) %></td>
+      <th></th>
       <td><%= submit_tag("Update!") %></td>
     </tr>
   </table>
   <% end %>
+  <ul>
+    <li><%= link_to "Back", tag_path(@tag) %></li>
+  </ul>
 </div>

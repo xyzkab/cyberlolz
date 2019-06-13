@@ -10,11 +10,9 @@
       <th align="left">Description</th>
       <td><%= @tag.description %></td>
     </tr>
-    <tr>
-      <td><%= link_to "Edit", edit_tag_path(@tag) %></td>
-    </tr>
-    <tr>
-      <td><%= link_to "Back", tags_path %></td>
-    </tr>
   </table>
+  <ul>
+    <li><%= link_to "Edit", edit_tag_path(@tag) %></li>
+    <li><%= link_to "Back", tags_path %></li>
+  </ul>
 </div>
