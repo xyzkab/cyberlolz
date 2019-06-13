@@ -48,6 +48,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use elasticsearch-model
 gem 'elasticsearch-model'
 
+# Use kaminari
+gem 'kaminari'
+
 # Use kibana_dashboard_api
 gem 'kibana_dashboard_api', :git => 'https://github.com/xyzkab/kibana_dashboard_api'
 gem 'http-configuration', :git => 'https://github.com/xyzkab/http-configuration'
