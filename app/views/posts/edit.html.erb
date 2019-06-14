@@ -16,6 +16,10 @@
       <td><%= f.select :category_id, @categories.collect {|category| [category.name, category.id]} %></td>
     </tr>
     <tr>
+      <th align="left">Tag</th>
+      <td><%= f.select :tag_id, @tag.collect {|tag| [tag.name, tag.id]}, include_blank: true %></td>
+    </tr>
+    <tr>
       <th align="left">Status</th>
       <td><%= f.select :post_status_id, @status.collect {|status| [status.name, status.id]} %></td>
     </tr>

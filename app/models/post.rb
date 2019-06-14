@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   def as_indexed_json(options = {})
     as_json(
       include: {
+        tag: { except: [:created_at, :updated_at] },
         status: { except: [:created_at, :updated_at] },
         category: { except: [:created_at, :updated_at] }
       }

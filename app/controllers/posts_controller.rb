@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @categories = Category.all
     @status = PostStatus.all
+    @tag = Tag.all
   end
 
   def show
@@ -34,6 +35,6 @@ class PostsController < ApplicationController
   
   private
   def update_params
-    params.require(:post).permit(:description, :category_id, :post_status_id)
+    params.require(:post).permit(:description, :category_id, :tag_id, :post_status_id)
   end
 end
