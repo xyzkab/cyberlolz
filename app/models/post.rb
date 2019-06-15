@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   include Elasticsearch::Model::Callbacks
 
   before_validation :set_uniq_url
+  after_update :update_post_index
   validate :parse_url
   validates :url_uniq, uniqueness: {case_sensitive: false}
 
@@ -23,6 +24,10 @@ class Post < ApplicationRecord
     )
   end
 
+  def tag
+    super || Tag.default
+  end
+
   def category
     super || Category.default
   end
@@ -34,6 +39,10 @@ class Post < ApplicationRecord
   alias_method :status, :post_status
 
   private
+
+  def update_post_index
+    __elasticsearch__.index_document refresh: true
+  end
 
   def parse_url
     schemes = ["http","https"]

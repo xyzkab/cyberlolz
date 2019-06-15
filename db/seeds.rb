@@ -19,3 +19,8 @@ end
 }.each do |name,desc|
   PostStatus.create(name: name, description: desc)
 end
+{
+  "untagged" => nil
+}.each do |name,desc|
+  Tag.create(name: name, description: desc)
+end
