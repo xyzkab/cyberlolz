@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_143618) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.text "description"
     t.string "url"
     t.string "url_uniq"
     t.datetime "created_at", null: false
