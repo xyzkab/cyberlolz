@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
+    @tags = Tag.order(created_at: :desc).page(params[:page])
   end
 
   def edit

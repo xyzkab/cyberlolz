@@ -15,6 +15,8 @@
     </tr>
     <% end %>
   </table>
+  <br/>
+  <%= paginate(@tags) %>
   <ul>
     <li><%= link_to "New", new_tag_path %></li>
   </ul>
